@@ -1,0 +1,194 @@
+:root {
+      --primary-color: #6C63FF;
+      --light-bg: #f5f7fa;
+      --card-bg: #ffffff;
+      --border-radius: 12px;
+      --shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0e7ff, #fdfbfb);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding-top: 60px;
+    }
+
+    .container {
+      background: var(--card-bg);
+      padding: 40px 30px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-width: 420px;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 600;
+      color: var(--primary-color);
+      font-size: 2rem;
+    }
+
+    .input-section {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    #task-input {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: var(--border-radius);
+      outline: none;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    #task-input:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15);
+    }
+
+    #add-btn {
+      padding: 0 16px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 20px;
+      transition: 0.3s;
+    }
+
+    #add-btn:hover {
+      background-color: #574fd6;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--light-bg);
+      padding: 12px 15px;
+      margin-bottom: 12px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: background 0.3s;
+    }
+
+    li.completed span {
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    li input[type="checkbox"] {
+      margin-right: 10px;
+      accent-color: var(--primary-color);
+    }
+
+    li span {
+      flex: 1;
+      font-size: 14px;
+    }
+
+    li button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      color: #f87171;
+      transition: 0.2s;
+    }
+
+    li button:hover {
+      transform: scale(1.2);
+    }
+      .dark-mode {
+      background: linear-gradient(135deg, #1e1e2f, #2e2e3e);
+    }
+
+    .dark-mode .container {
+      background: #2b2b3c;
+    }
+
+    .dark-mode h1 {
+      color: #A5B4FC;
+    }
+
+    .dark-mode #task-input {
+      background-color: #3b3b4f;
+      color: white;
+      border-color: #555;
+    }
+
+    .dark-mode #task-input:focus {
+      box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.2);
+    }
+
+    .dark-mode #add-btn {
+      background-color: #8b5cf6;
+    }
+
+    .dark-mode #add-btn:hover {
+      background-color: #7c3aed;
+    }
+
+    .dark-mode li {
+      background: #3a3a4d;
+      color: white;
+    }
+
+    .dark-mode li.completed span {
+      color: #aaa;
+    }
+
+    .toggle-mode {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: 2px solid var(--primary-color);
+      padding: 6px 12px;
+      border-radius: 8px;
+      color: var(--primary-color);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .toggle-mode:hover {
+      background-color: var(--primary-color);
+      color: white;
+    }
+
+    footer {
+      /* text-align: center; */
+      margin-top: 520px;
+      margin-right: -30px;
+      font-size: 16px;
+      color: #181414;
+    }
+   
