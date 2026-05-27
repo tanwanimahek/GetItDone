@@ -1,48 +1,105 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TODO using DOM</title>
-    <link rel="stylesheet" href="todo-dom.css" >
-</head>
-<body>
-    <h3>TODO APP</h3>
-    <input placeholder="enter your task">
-    <button>Add Task</button>
-    <ul>
-        <li>Eat<button class="delete">Delete</button></li>
-        <li>Sleep<button class="delete">Delete</button></li>
-    </ul>
-
-    <script src="todo-dom.js"></script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GetItDone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="todo-dom.css" />
 </head>
 <body>
 
-     <button class="toggle-mode" onclick="toggleMode()">🌙 Dark Mode</button>
-  <div class="container">
-    <h1>GetItDone</h1>
-    <div class="input-section">
-      <input type="text" placeholder="Add a new task..." id="task-input" />
-      <button id="add-btn">+</button>
+  <!-- ── SPLASH ── -->
+  <div id="splash-screen">
+    <div class="splash-left">
+      <div class="splash-text">
+        <p class="splash-label">Your daily planner,</p>
+        <h1 class="splash-title">GetIt<em>Done.</em></h1>
+        <p class="splash-desc">Simple. Clean. Stay on top of everything that matters.</p>
+        <button class="btn-primary" onclick="goHome()">Get Started →</button>
+      </div>
     </div>
-    <ul id="task-list"></ul>
+    <div class="splash-right">
+      <div class="splash-illo">
+        <svg width="300" height="340" viewBox="0 0 300 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="150" cy="324" rx="90" ry="13" fill="rgba(232,68,90,0.12)"/>
+          <rect x="70" y="40" width="160" height="210" rx="22" fill="#fff" opacity=".97"/>
+          <rect x="70" y="40" width="160" height="210" rx="22" fill="none" stroke="#FFB3C1" stroke-width="1.5"/>
+          <rect x="92" y="66" width="66" height="9" rx="4.5" fill="#FFB3C1"/>
+          <rect x="92" y="84" width="106" height="7" rx="3.5" fill="#FFD6DF"/>
+          <rect x="92" y="98" width="88" height="7" rx="3.5" fill="#FFD6DF"/>
+          <circle cx="92" cy="122" r="9" fill="#FFE4EA" stroke="#F4C0D1" stroke-width="1.5"/>
+          <rect x="108" y="117" width="72" height="7" rx="3.5" fill="#FFB3C1"/>
+          <circle cx="92" cy="146" r="9" fill="#E8445A"/>
+          <path d="M87 146 L91 150 L98 140" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="108" y="141" width="58" height="7" rx="3.5" fill="#F4C0D1" opacity=".5"/>
+          <rect x="108" y="151" width="38" height="5" rx="2.5" fill="#FFD6DF" opacity=".5"/>
+          <circle cx="92" cy="174" r="9" fill="#FFE4EA" stroke="#F4C0D1" stroke-width="1.5"/>
+          <rect x="108" y="169" width="80" height="7" rx="3.5" fill="#FFB3C1"/>
+          <rect x="108" y="180" width="46" height="5" rx="2.5" fill="#FFD6DF"/>
+          <circle cx="200" cy="50" r="28" fill="#E8445A"/>
+          <path d="M192 50 L197 55 L209 41" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="100" cy="28" r="11" fill="#FFE4EA"/>
+          <circle cx="200" cy="22" r="7" fill="#FFB3C1"/>
+          <circle cx="118" cy="18" r="6" fill="#F4C0D1"/>
+          <circle cx="242" cy="90" r="5" fill="#FFD6DF"/>
+          <circle cx="58" cy="180" r="6" fill="#FFD6DF"/>
+        </svg>
+      </div>
+    </div>
   </div>
-   
+
+  <!-- ── HOME ── -->
+  <div id="home-screen" class="hidden">
+
+    <div class="home-sidebar">
+      <div class="sidebar-top">
+        <button class="back-btn" onclick="goSplash()" aria-label="back to home">← Back</button>
+        <div class="sidebar-brand">GetIt<em>Done.</em></div>
+        <p class="sidebar-greeting" id="greeting-text">Good morning</p>
+      </div>
+
+      <div class="stats-col">
+        <div class="stat-card">
+          <div class="stat-num" id="stat-total">0</div>
+          <div class="stat-lbl">Total tasks</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="stat-done">0</div>
+          <div class="stat-lbl">Completed</div>
+        </div>
+        <div class="stat-card accent">
+          <div class="stat-num" id="stat-left">0</div>
+          <div class="stat-lbl">Remaining</div>
+        </div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button class="theme-btn" id="theme-btn" onclick="toggleMode()">🌙 Dark mode</button>
+        <p class="made-with">made with ❤️</p>
+      </div>
+    </div>
+
+    <div class="home-main">
+      <div class="main-header">
+        <div class="filter-row">
+          <button class="f-btn on" data-filter="all">All</button>
+          <button class="f-btn" data-filter="active">Active</button>
+          <button class="f-btn" data-filter="completed">Done</button>
+        </div>
+        <div class="add-row">
+          <input type="text" id="task-input" class="add-input" placeholder="Add a new task and press Enter…" />
+          <button id="add-btn" class="add-btn-pill" aria-label="add task">+ Add</button>
+        </div>
+      </div>
+
+      <ul id="task-list"></ul>
+      <p id="empty-msg" class="empty-state">Nothing here yet — add your first task above ✨</p>
+    </div>
+
+  </div>
 
   <script src="todo-dom.js"></script>
-   <footer>
-        <p>~made with ❤️</p>
-    </footer>
 </body>
 </html>
