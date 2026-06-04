@@ -52,9 +52,9 @@ This project was built to demonstrate a solid foundation of front-end fundamenta
 
 ```
 GetItDone/
-├── todo-dom.html    # Structure and screens
-├── todo-dom.css     # Styling, theming, animations
-├── todo-dom.js      # Logic, localStorage, DOM updates
+├── index.html    # Structure and screens
+├── style.css     # Styling, theming, animations
+├── script.js      # Logic, localStorage, DOM updates
 └── README.md
 ```
 
