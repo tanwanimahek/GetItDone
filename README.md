@@ -1,6 +1,6 @@
 # ✅ GetItDone
 
-A minimal and aesthetic To-Do app made using HTML, CSS, and JavaScript — designed to help you stay productive with a clean, calming UI and smooth task management.
+A minimal and aesthetic To-Do app made using HTML, CSS, and JavaScript - designed to help you stay productive with a clean, calming UI and smooth task management.
 
 > Made with ❤️ by [Mahek Tanwani](https://github.com/tanwanimahek)
 
