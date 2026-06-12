@@ -18,8 +18,8 @@ A minimal and aesthetic To-Do app made using HTML, CSS, and JavaScript - designe
 - **Light / Dark mode** toggle 🌙☀️
 - **Empty state** message when no tasks exist
 - **Shake feedback** when trying to add an empty task
-- **Fully responsive** — desktop sidebar layout + mobile-friendly stacked view
-- **Smooth animations** — soft transitions and slide-in effects throughout
+- **Fully responsive** - desktop sidebar layout + mobile-friendly stacked view
+- **Smooth animations** - soft transitions and slide-in effects throughout
 
 ---
 
