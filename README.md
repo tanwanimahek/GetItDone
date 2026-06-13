@@ -13,8 +13,8 @@ A minimal and aesthetic To-Do app made using HTML, CSS, and JavaScript - designe
 - **Delete tasks** with a single click
 - **Inline editing** — double-click any task to rename it
 - **Filter tasks** — view All, Active, or Done tasks
-- **Live stats** — see Total, Completed, and Remaining counts update in real time
-- **localStorage** — your tasks are saved and survive page refreshes
+- **Live stats** - see Total, Completed, and Remaining counts update in real time
+- **localStorage** - your tasks are saved and survive page refreshes
 - **Light / Dark mode** toggle 🌙☀️
 - **Empty state** message when no tasks exist
 - **Shake feedback** when trying to add an empty task
